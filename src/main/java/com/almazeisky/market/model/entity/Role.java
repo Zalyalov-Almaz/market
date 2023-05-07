@@ -15,11 +15,12 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Role {
 
-    private static final String SEQUENCE = "user_sequence";
+    private static final String SEQUENCE = "role_sequence";
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQUENCE)
     @SequenceGenerator(name = SEQUENCE, sequenceName = SEQUENCE, allocationSize = 1)
     private Long id;
+    @Enumerated(EnumType.STRING)
     private RoleType type;
 }
