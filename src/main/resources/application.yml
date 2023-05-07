@@ -1,0 +1,15 @@
+spring:
+
+  jpa:
+    hibernate:
+      ddlAuto: create-drop
+    showSql: true
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/market
+    username: amigo
+    password: amigo
+
+  flyway:
+    baselineOnMigrate: true
+
