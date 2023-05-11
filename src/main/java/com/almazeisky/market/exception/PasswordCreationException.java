@@ -1,0 +1,7 @@
+package com.almazeisky.market.exception;
+
+public class PasswordCreationException extends RuntimeException {
+    public PasswordCreationException(String message) {
+        super(message);
+    }
+}

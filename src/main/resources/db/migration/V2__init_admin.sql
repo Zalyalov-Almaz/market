@@ -1,5 +1,5 @@
 insert into users (id, username, password, archived, bucket_id)
-values (1, 'Almaz', '123', false, null);
+values (1, 'Almaz', '$2a$12$kMs5utM4CdBUXxb8yPMEwu5uafHbqDr70mDF2jf3YdUdPNBhtHw5O', false, null);
 
 insert into requisites
 (
@@ -18,13 +18,13 @@ values
  1
 );
 
-insert into roles (id, type)
+insert into roles (id, authority)
 values (1, 'ADMIN');
-insert into roles (id, type)
+insert into roles (id, authority)
 values (2, 'MANAGER');
-insert into roles (id, type)
+insert into roles (id, authority)
 values (3, 'USER');
-insert into roles (id, type)
+insert into roles (id, authority)
 values (4, 'GUEST');
 
 insert into users_roles (user_id, role_id)
@@ -32,3 +32,4 @@ values (1, 1);
 
 alter sequence user_sequence restart with 2;
 alter sequence role_sequence restart with 5;
+alter sequence requisite_sequence restart 2;
