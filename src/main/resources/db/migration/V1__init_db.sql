@@ -86,7 +86,7 @@ create table requisites
 create table roles
 (
     id bigint not null,
-    type varchar(255),
+    authority varchar(255) unique,
     primary key (id)
 );
 create table users
