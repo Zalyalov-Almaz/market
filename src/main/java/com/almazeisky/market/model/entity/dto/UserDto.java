@@ -1,4 +1,4 @@
-package com.almazeisky.market.model.dto;
+package com.almazeisky.market.model.entity.dto;
 
 import lombok.Builder;
 

@@ -1,5 +1,17 @@
-insert into users (id, username, password, archived, bucket_id)
-values (1, 'Almaz', '$2a$12$kMs5utM4CdBUXxb8yPMEwu5uafHbqDr70mDF2jf3YdUdPNBhtHw5O', false, null);
+insert into users (id,
+                   name,
+                   surname,
+                   username,
+                   password,
+                   archived,
+                   bucket_id)
+values ('38ef1a06-8a92-4b31-97ab-5e7f1fd4c900',
+        'Almaz',
+        'Zalyalov',
+        'Almaz',
+        '$2a$12$kMs5utM4CdBUXxb8yPMEwu5uafHbqDr70mDF2jf3YdUdPNBhtHw5O',
+        false,
+        null);
 
 insert into requisites
 (
@@ -15,7 +27,7 @@ values
  'Kazan, Mehovshikov st., 4a, 45',
  'almaz@gmail.com',
  '+79520334110',
- 1
+ '38ef1a06-8a92-4b31-97ab-5e7f1fd4c900'
 );
 
 insert into roles (id, authority)
@@ -28,8 +40,7 @@ insert into roles (id, authority)
 values (4, 'GUEST');
 
 insert into users_roles (user_id, role_id)
-values (1, 1);
+values ('38ef1a06-8a92-4b31-97ab-5e7f1fd4c900', 1);
 
-alter sequence user_sequence restart with 2;
 alter sequence role_sequence restart with 5;
-alter sequence requisite_sequence restart 2;
+alter sequence requisite_sequence restart with 2;

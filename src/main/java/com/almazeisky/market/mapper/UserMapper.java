@@ -1,6 +1,6 @@
 package com.almazeisky.market.mapper;
 
-import com.almazeisky.market.model.dto.UserDto;
+import com.almazeisky.market.model.entity.dto.UserDto;
 import com.almazeisky.market.model.entity.Requisite;
 import com.almazeisky.market.model.entity.Role;
 import com.almazeisky.market.model.entity.User;
@@ -27,7 +27,7 @@ public class UserMapper {
         List<Requisite> requisites = new ArrayList<>();
         requisites.add(requisite);
         Set<Role> roles = new HashSet<>();
-        Role role = roleRepository.getRoleByAuthority(RoleType.USER );
+        Role role = roleRepository.getRoleByAuthority(RoleType.USER);
         roles.add(role);
         User user = User.builder()
                 .username(dto.username())

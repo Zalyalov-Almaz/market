@@ -7,7 +7,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.security.core.GrantedAuthority;
 
 @Entity
 @Table(name = "roles",
@@ -17,7 +16,7 @@ import org.springframework.security.core.GrantedAuthority;
 @AllArgsConstructor
 @Builder
 @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"})
-public class Role implements GrantedAuthority {
+public class Role {
 
     private static final String SEQUENCE = "role_sequence";
 
@@ -28,7 +27,6 @@ public class Role implements GrantedAuthority {
     @Enumerated(EnumType.STRING)
     private RoleType authority;
 
-    @Override
     public String getAuthority() {
         return authority.name();
     }

@@ -6,7 +6,6 @@ create sequence order_sequence start with 1 increment by 1;
 create sequence product_sequence start with 1 increment by 1;
 create sequence requisite_sequence start with 1 increment by 1;
 create sequence role_sequence start with 1 increment by 1;
-create sequence user_sequence start with 1 increment by 1;
 
 create table bucket_details
 (
@@ -22,7 +21,7 @@ create table bucket_details
 create table buckets
 (
     id bigint not null,
-    user_id bigint,
+    user_id uuid,
     primary key (id)
 );
 create table buckets_products
@@ -38,7 +37,7 @@ create table orders
     status varchar(255),
     sum numeric(38,2),
     updated timestamp(6),
-    user_id bigint,
+    user_id uuid,
     primary key (id)
 );
 create table order_details
@@ -80,18 +79,20 @@ create table requisites
     address varchar(255),
     email varchar(255),
     phone varchar(255),
-    user_id bigint,
+    user_id uuid,
     primary key (id)
 );
 create table roles
 (
     id bigint not null,
-    authority varchar(255) unique,
+    authority text unique,
     primary key (id)
 );
 create table users
 (
-    id bigint not null,
+    id uuid not null,
+    name varchar(255),
+    surname varchar(255),
     archived boolean not null,
     password varchar(255),
     username varchar(255),
@@ -100,7 +101,7 @@ create table users
 );
 create table users_roles
 (
-    user_id bigint not null,
+    user_id uuid not null,
     role_id bigint not null,
     primary key (user_id, role_id)
 );

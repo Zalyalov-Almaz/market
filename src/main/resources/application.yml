@@ -1,3 +1,6 @@
+server:
+  port: 8080
+
 spring:
 
   jpa:
@@ -6,10 +9,35 @@ spring:
     showSql: true
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/market
-    username: amigo
-    password: amigo
+    url: "jdbc:postgresql://localhost:5432/market"
+    username: "amigo"
+    password: "amigo"
 
   flyway:
     baselineOnMigrate: true
+
+  security:
+    csrf:
+      enabled: false
+    ignored: "/**"
+    basic:
+      enabled: false
+    oauth2:
+      resource-server:
+        jwt:
+          jwkSetUri: "http://localhost:8081/realms/market/protocol/openid-connect/certs" # API для проверки целостности access-token
+
+keycloak:
+  auth-server-url: "http://localhost:8081"
+  resource: "market-client"
+  realm: "market"
+  ssl-required: "external"
+  use-resource-role-mappings: true
+  public-client: true
+  pkce: true
+  verify-token-audience: true
+  confidential-port: 0
+  access:
+    username: "Almaz"
+    password: "123"
 

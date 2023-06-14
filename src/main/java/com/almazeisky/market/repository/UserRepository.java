@@ -7,12 +7,11 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, String> {
+    Optional<User> findOneById(UUID id);
 
-    @Query("from User u join fetch u.roles where u.username = :name")
-    Optional<User> getFirstByUsername(@Param(value = "name") String name);
-
-
+    Optional<User> deleteById(UUID id);
 }
